@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head prefix="og: http://ogp.me/ns#">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="开始的时候，我还不知道已经开始，结束的时候我才明白...">
+    <title>一颗孤独而善良的心 | KamBack&#39;s Blog</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x9488;&amp;#x5BF9;mysql&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#xFF1A; &amp;#x9996;&amp;#x5148;go&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;database/sql&amp;#x63A5;&amp;#x53E3;&amp;#x7528;&amp;#x4E8E;&amp;#x6CE8;&amp;#x518C;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x9A71;&amp;#x52A8;&amp;#x3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KamBack&#39;s Blog">
+<meta property="og:url" content="http://kamback.github.io/2017/12/28/go-mysql/index.html">
+<meta property="og:site_name" content="KamBack&#39;s Blog">
+<meta property="og:description" content="&amp;#x9488;&amp;#x5BF9;mysql&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#xFF1A; &amp;#x9996;&amp;#x5148;go&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;database/sql&amp;#x63A5;&amp;#x53E3;&amp;#x7528;&amp;#x4E8E;&amp;#x6CE8;&amp;#x518C;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x9A71;&amp;#x52A8;&amp;#x3">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-28T08:45:38.471Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KamBack&#39;s Blog">
+<meta name="twitter:description" content="&amp;#x9488;&amp;#x5BF9;mysql&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#xFF1A; &amp;#x9996;&amp;#x5148;go&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;database/sql&amp;#x63A5;&amp;#x53E3;&amp;#x7528;&amp;#x4E8E;&amp;#x6CE8;&amp;#x518C;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x9A71;&amp;#x52A8;&amp;#x3">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "xmto",
+  "url": "http://kamback.github.io"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>KamBack&#39;s Blog</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">xmto</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item" >
+        <i class="home icon"></i>
+        HOME
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-go-mysql" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <p>&#x9488;&#x5BF9;mysql&#x6570;&#x636E;&#x5E93;&#xFF1A;</p>
+<p>&#x9996;&#x5148;go&#x63D0;&#x4F9B;&#x4E86;<strong>database/sql</strong>&#x63A5;&#x53E3;&#x7528;&#x4E8E;&#x6CE8;&#x518C;&#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;&#x3002;</p>
+<p>&#x5E38;&#x4F7F;&#x7528;<strong>github.com/go-sql-driver/mysql</strong> &#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x4E0B;&#x8F7D;mysql&#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;&#x3002;&#x6267;&#x884C;</p>
+<blockquote>
+<p>go get github.com/go-sql-driver/mysql</p>
+</blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x4E0B;&#x8F7D;&#x5B8C;&#x6BD5;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x5728;gopath/pkg&#x5305;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x770B;&#x5230;&#x4ED6;&#x4E86;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x9A71;&#x52A8;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x589E;&#x5220;&#x6539;&#x67E5;&#x64CD;&#x4F5C;&#x5462;&#xFF1F;</p>
+<p><em>so</em></p>
+<pre><code>package main
+
+import(
+   _ &quot;github.com/go-sql-driver/mysql&quot; //&#x5BFC;&#x5165;&#x8FD9;&#x4E2A;&#x5305;
+   &quot;database/sql&quot;  //&#x800C;&#x4E14;&#x8981;&#x5BFC;&#x5165;&#x8FD9;&#x4E2A;&#x5305;
+   &quot;fmt&quot;
+)
+
+func main(){
+   //&#x9996;&#x5148;&#x6211;&#x4EEC;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;
+   db , err := sql.Open(&quot;mysql&quot; , &quot;root:@/test?charset=utf8&quot;)
+   if err != nil{
+      panic(err)
+   }
+
+   //&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x6DFB;&#x52A0;&#x4E00;&#x6761;&#x6570;&#x636E;
+   qry , err := db.Prepare(&quot;INSERT INTO t_user (name,age) VALUES (?,?)&quot;)
+   if err != nil{
+      panic(err)
+   }
+   res , err := qry.Exec(&quot;xin2017&quot;,&quot;26&quot;)
+   if err != nil{
+      panic(err)
+   }
+   fmt.Println(res.LastInsertId())
+
+   //&#x7136;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x521A;&#x624D;&#x6DFB;&#x52A0;&#x7684;&#x6570;&#x636E;
+   users , err := db.Query(&quot;select id,name,age from t_user&quot;)
+   if err != nil{
+      panic(err)
+   }
+   for users.Next(){ //&#x904D;&#x5386;&#x4E00;&#x4E0B;&#x6570;&#x636E;
+      var id int
+      var name string
+      var age int
+      users.Scan(&amp;id , &amp;name ,&amp;age)
+      fmt.Println(id,name,age)
+   }
+
+   //&#x518D;&#x7136;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;id=1&#x7684;&#x7528;&#x6237;&#x7684;&#x6635;&#x79F0;&#x4E3A;&#x2018;&#x840C;&#x59B9;&#x5B50;2018&#x2019;
+   qry2 , err := db.Prepare(&quot;UPDATE t_user SET name = &apos;meng2018&apos; where id = ?&quot;)
+   if err != nil{
+      panic(err)
+   }
+   updaterow , err := qry2.Exec(1)
+   if err != nil{
+      panic(err)
+   }
+   affectrow , err:= updaterow.RowsAffected()
+   if err != nil{
+      panic(err)
+   }
+   fmt.Println(affectrow)
+
+   //&#x6700;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5220;&#x9664;&#x521A;&#x624D;&#x6DFB;&#x52A0;&#x7684;&#x6240;&#x6709;&#x7684;name=&apos;xin2017&apos;
+   qry3 , err := db.Prepare(&quot;DELETE from t_user WHERE name = ?&quot;)
+   if err != nil{
+      panic(err)
+   }
+   deleterow , err := qry3.Exec(&quot;xin2017&quot;)
+   if err != nil{
+      panic(err)
+   }
+   affectrow2 , err:= deleterow.RowsAffected()
+   if err != nil{
+      panic(err)
+   }
+   fmt.Println(affectrow2)
+}
+</code></pre>
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2017-12-28T08:45:38.471Z" itemprop="datePublished">2017-12-28</time>
+
+    </span>
+    <span class="post-description-item">
+        
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a class="ui tiny button disabled"><i class="angle left icon"></i>Previous</a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2017/12/28/hello-world/" class="ui tiny button">
+                    
+                    Hello World
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2017 <a href="/">xmto</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
+                href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>
